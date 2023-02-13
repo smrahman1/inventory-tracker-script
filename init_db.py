@@ -45,13 +45,13 @@ def init_completed_orders_table():
     conn.commit()
 
 def init_count_table():
-    cur.execute('''DROP TABLE IF EXISTS product_count_per_order''') 
+    cur.execute("DROP TABLE IF EXISTS product_count_per_order") 
     cur.execute('''
         CREATE TABLE IF NOT EXISTS product_count_per_order (
             id SERIAL PRIMARY KEY,
             order_id STRING,
             product_count INT,
-            completed INT,
+            completed INT
         );
     ''')
     conn.commit()
@@ -62,7 +62,7 @@ def init_users_table():
         CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
             username STRING,
-            password STRING,
+            password STRING
         );
     ''')
     conn.commit()
