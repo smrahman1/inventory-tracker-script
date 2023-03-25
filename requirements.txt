@@ -1,3 +1,8 @@
-python-dotenv
-beautifulsoup4
-requests
+certifi==2022.12.7
+charset-normalizer==3.0.1
+idna==3.4
+psycopg2-binary==2.9.5
+python-dotenv==0.21.1
+requests==2.28.2
+soupsieve==2.3.2.post1
+urllib3==1.26.14

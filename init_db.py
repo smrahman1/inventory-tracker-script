@@ -60,9 +60,10 @@ def init_users_table():
     cur.execute('''DROP TABLE IF EXISTS users''') 
     cur.execute('''
         CREATE TABLE IF NOT EXISTS users (
-            id SERIAL PRIMARY KEY,
+            id UUID NOT NULL DEFAULT gen_random_uuid(),
             username STRING,
-            password STRING
+            password STRING,
+            isactive BOOLEAN
         );
     ''')
     conn.commit()
