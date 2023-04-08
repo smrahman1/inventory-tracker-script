@@ -101,7 +101,10 @@ def parseProducts(rows, products, order):
             qty = product.find('td', attrs={'data-th':'Qty'}).text.strip()
             split = qty.split(' ')
             ordered = split[1]
-            shipped = split[3]
+            if len(split) == 4:
+              shipped = split[3]
+            else:
+                shipped = 0
             total_price = product.find('td', attrs={'data-th':'Subtotal'}).text.strip().split(' ')[1]
             products.append({'order_id': order['order_id'], 'title': title, 'size': size, 'sku': sku, 'unit_price': unit_price, 'ordered': ordered, 'shipped':shipped, 'total_price': total_price[1:], 'order': order})
 
@@ -165,7 +168,7 @@ def insertProducts(products):
             cur.execute("INSERT INTO inventory (title, size, quantity, unit_price) VALUES (%s, %s, %s, %s)", (product['title'], product['size'], product['shipped'], product['unit_price']))
         conn.commit()
 
-def main():
+def balloons_online_main():
     with requests.session() as s:
         
         login_data['form_key'] = getToken(s)
@@ -194,5 +197,5 @@ def main():
     conn.close()
     return 0
 
-if __name__ == '__main__':
-  main()
+# if __name__ == '__main__':
+#   main()

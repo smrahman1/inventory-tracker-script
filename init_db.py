@@ -63,7 +63,8 @@ def init_users_table():
             id UUID NOT NULL DEFAULT gen_random_uuid(),
             username STRING,
             password STRING,
-            isactive BOOLEAN
+            isactive BOOLEAN,
+	          isadmin BOOLEAN
         );
     ''')
     conn.commit()

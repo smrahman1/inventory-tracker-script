@@ -111,7 +111,7 @@ def insertProducts(products):
         conn.commit()
 
 
-def main():
+def bargain_balloons_main():
     orders = []
     products = []
     with requests.session() as s:
@@ -130,5 +130,5 @@ def main():
     return 0
 
 
-if __name__ == '__main__':
-  main()
+# if __name__ == '__main__':
+#   bargain_balloons_main()
